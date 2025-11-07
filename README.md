@@ -93,8 +93,7 @@ The system supports multiple roles — **Admin**, **Staff**, and **Customer** �
 
 ### 📁 Project Structure  
 
-![Uploading image.png…]()
-
+<img width="681" height="326" alt="image" src="https://github.com/user-attachments/assets/9e1fed1c-8759-43c8-a21f-452122b840d0" />
 
 ### ✅ Main Features  
 - User login / registration  
