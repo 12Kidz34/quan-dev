@@ -36,11 +36,23 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.disable());
 
-        // Phân quyền: /poly/** yêu cầu đăng nhập
         http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/poly/**").authenticated()
-                .anyRequest().permitAll()
+                //  Home & URL0 → ai cũng vào được
+                .requestMatchers("/", "/poly/home", "/poly/url0").permitAll()
+
+
+                .requestMatchers("/poly/url1", "/poly/url2").hasAnyRole("USER")
+
+
+                .requestMatchers("/poly/url3").hasRole("ADMIN")
+
+
+                .requestMatchers("/poly/url4").hasAnyRole("USER", "ADMIN")
+
+
+                .anyRequest().authenticated()
         );
+
 
         // ✅ FORM ĐĂNG NHẬP TÙY BIẾN
         http.formLogin(config -> {

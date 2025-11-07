@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyController {
 
-    @RequestMapping({"/", "/poly/url0"})
+    @RequestMapping({"/"})
     public String method0(Model model) {
-        model.addAttribute("message", "@/poly/url0 => method0()");
+        model.addAttribute("message", "@/poly/url0 => Home()");
         return "page";
     }
 
-    @RequestMapping("/poly/home")
+    @RequestMapping("/poly/url0")
     public String method1(Model model) {
-        model.addAttribute("message", "@/poly/Home => Home()");
+        model.addAttribute("message", "@/poly/url0 => method0()");
         return "page";
     }
 

@@ -3,112 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Lab 1 - Authentication</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #1976d2;
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        header h2 {
-            margin: 0;
-            font-weight: 500;
-        }
-
-        nav {
-            margin: 30px 0;
-        }
-
-        nav a {
-            background-color: white;
-            color: #1976d2;
-            text-decoration: none;
-            margin: 5px 8px;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.2s ease;
-        }
-
-        nav a:hover {
-            background-color: #1976d2;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        main {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .message {
-            background-color: #fff;
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            display: inline-block;
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 25px;
-        }
-
-        footer {
-            margin-top: 40px;
-            color: #888;
-            font-size: 14px;
-        }
-
-        hr {
-            width: 60%;
-            margin: 30px auto;
-            border: 1px solid #ddd;
-        }
-    </style>
 </head>
 <body>
 
-<header>
-    <h2>🔐 Lab 1 — Authentication & Authorization</h2>
-</header>
+<h3 th:text="${message}">Message</h3>
 
-<main>
-    <!-- Hiển thị thông báo của controller -->
-    <div class="message">
-        <span th:text="${message}">Message</span>
-    </div>
+<!-- Menu điều hướng -->
+<nav>
+    <a th:href="@{/}">Trang chủ</a> |
+    <a th:href="@{/poly/url0}">URL 0</a> |
+    <a th:href="@{/poly/url1}">URL 1</a> |
+    <a th:href="@{/poly/url2}">URL 2</a> |
+    <a th:href="@{/poly/url3}">URL 3</a> |
+    <a th:href="@{/poly/url4}">URL 4</a>
+</nav>
 
-    <!-- Menu điều hướng -->
-    <nav>
-        <a th:href="@{/}">Trang chủ</a>
-        <a th:href="@{/poly/url0}">URL 0</a>
-        <a th:href="@{/poly/url1}">URL 1</a>
-        <a th:href="@{/poly/url2}">URL 2</a>
-        <a th:href="@{/poly/url3}">URL 3</a>
-        <a th:href="@{/poly/url4}">URL 4</a>
-    </nav>
+<hr>
 
-    <hr>
+<!-- Nhúng thông tin người dùng -->
+<div th:replace="user-info :: *"></div>
 
-    <!-- Nhúng fragment thông tin người dùng -->
-    <div th:replace="user-info :: *"></div>
-</main>
-
-<footer>
-    © 2025 - Spring Boot Security Lab by <strong>com.poly</strong>
-</footer>
+<hr>
 
 </body>
 </html>
