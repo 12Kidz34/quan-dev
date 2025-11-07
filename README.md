@@ -1,77 +1,151 @@
-# 🎯 Quan-Dev – Ứng dụng quản lý bán linh kiện PC  
-**Branch:** `java5`  
+# 🧩 Quan-Dev – Ứng dụng quản lý bán linh kiện PC  
+**Branch:** `Java5`  
 
-## 🔍 Giới thiệu  
-Dự án này được thực hiện trong khuôn khổ môn **JAVA 5 – Ứng dụng Java Web nâng cao** của trường FPT Polytechnic.  
-Ứng dụng cho phép quản lý linh kiện PC (sản phẩm, kho hàng, đơn hàng, nhân viên, khách hàng…) với ba vai trò chính: **Khách hàng**, **Nhân viên**, **Quản lý**.
+---
 
-## 🛠 Công nghệ sử dụng  
-- Ngôn ngữ: Java  
-- Framework/Thư viện: Servlet + JSP (hoặc Spring Boot tùy cấu hình)  
-- ORM/Database: JPA / Hibernate → MySQL  
-- Frontend: JSP + Bootstrap (hoặc Vue.js nếu bạn kết hợp)  
-- Công cụ: Git, GitHub, IntelliJ IDEA / Eclipse  
-- Kiến trúc: MVC, phân quyền Admin/Staff/User  
+## 🇻🇳 GIỚI THIỆU (Vietnamese)
 
-## 📁 Cấu trúc dự án  
-src/
-├─ main/
-│ ├─ java/com/quan/dev/… → controller, dao, entity, service
-│ ├─ resources/
-│ │ └─ application.properties (cấu hình DB…)
-│ ├─ webapp/
-│ │ ├─ WEB-INF/views/ → các file JSP/HTML
-│ │ └─ assets/ → CSS, JS, hình ảnh
-└─ pom.xml (hoặc build.gradle)
+### 🔍 Giới thiệu  
+Dự án này được thực hiện trong khuôn khổ môn **JAVA 5 – Ứng dụng Java Web nâng cao** tại **FPT Polytechnic**.  
+Ứng dụng mô phỏng hệ thống **quản lý linh kiện PC**, bao gồm các chức năng quản lý sản phẩm, khách hàng, đơn hàng, kho hàng, và báo cáo thống kê.  
+Hệ thống có **phân quyền người dùng** gồm **Quản lý**, **Nhân viên**, và **Khách hàng**, với giao diện hiện đại và dữ liệu động từ cơ sở dữ liệu MySQL.
+
+### 🛠 Công nghệ sử dụng  
+- **Ngôn ngữ:** Java 8+  
+- **Framework:** Spring Boot / Hibernate / JPA  
+- **Database:** MySQL  
+- **Frontend:** JSP + Bootstrap / Thymeleaf  
+- **Build Tool:** Maven  
+- **IDE:** IntelliJ IDEA / Eclipse  
+- **Kiến trúc:** MVC + RESTful API  
+
+### 📁 Cấu trúc dự án  
+
+<img width="659" height="318" alt="image" src="https://github.com/user-attachments/assets/3f4d5028-3249-4932-8666-1cdf0b4384b4" />
 
 
-## ✅ Các tính năng chính  
-- Đăng ký, đăng nhập với phân quyền: Quản lý / Nhân viên / Khách hàng  
-- Quản lý sản phẩm linh kiện (CRUD)  
-- Quản lý kho hàng, tồn kho  
-- Quản lý đơn hàng, khách hàng  
-- Báo cáo thống kê (ví dụ: tồn kho, doanh thu)  
-- Giao diện người dùng thân thiện, responsive (Bootstrap)  
-- Xác thực đầu vào, xử lý lỗi.
+### ✅ Các tính năng chính  
+- **Đăng nhập / Đăng ký tài khoản**  
+- **Phân quyền người dùng (Admin / Staff / User)**  
+- **Quản lý sản phẩm, khách hàng, đơn hàng, kho hàng (CRUD)**  
+- **Thống kê dữ liệu, doanh thu, báo cáo nhanh**  
+- **Xử lý API (RESTful Web Services)**  
+- **Giao diện hiện đại, responsive (Bootstrap 5)**  
+- **Xử lý lỗi và xác thực dữ liệu đầu vào**
 
-## 🧮 Hướng dẫn cài đặt & chạy dự án  
-1. **Clone repository**  
+### 🧮 Hướng dẫn cài đặt & chạy  
+1. **Clone project**
     ```bash
     git clone https://github.com/12Kidz34/quan-dev.git
     cd quan-dev
     git checkout java5
-    ```  
-2. **Cấu hình cơ sở dữ liệu**  
-   - Tạo database trong MySQL, ví dụ: `quan_dev_db`  
-   - Mở file `application.properties` (hoặc tương đương) và điều chỉnh:  
-     ```properties
-     spring.datasource.url=jdbc:mysql://localhost:3306/quan_dev_db
-     spring.datasource.username=your_username
-     spring.datasource.password=your_password
-     ```  
-3. **Build và chạy ứng dụng**  
-   - Nếu dùng Spring Boot: chạy `mvn spring-boot:run` hoặc `./gradlew bootRun`  
-   - Nếu dùng Servlet/JSP: deploy lên server như Apache Tomcat  
-4. **Truy cập ứng dụng**  
-   Mở trình duyệt và vào: `http://localhost:8080` (hoặc port bạn cấu hình)  
+    ```
+2. **Cấu hình database**
+    - Tạo database: `quan_dev_db_java5`
+    - Cập nhật file `application.properties`
+      ```properties
+      spring.datasource.url=jdbc:mysql://localhost:3306/quan_dev_db_java5
+      spring.datasource.username=root
+      spring.datasource.password=123456
+      ```
+3. **Chạy ứng dụng**
+    ```bash
+    mvn spring-boot:run
+    ```
+4. **Truy cập trình duyệt**
+    ```
+    http://localhost:8080
+    ```
 
-## 🧑‍💼 Tài khoản mẫu  
-| Vai trò      | Tài khoản   | Mật khẩu |
-|-------------|-------------|----------|
-| Quản lý     | manager     | 123      |
-| Nhân viên    | staff       | 123      |
-| Khách hàng   | customer    | 123      |
+### 🧑‍💼 Tài khoản mẫu  
+| Vai trò | Tài khoản | Mật khẩu |
+|----------|------------|-----------|
+| Quản lý | admin | 123 |
+| Nhân viên | staff | 123 |
+| Khách hàng | user | 123 |
 
-## 👥 Thành viên nhóm  
-| STT | Họ tên            | Vai trò                 |
-|-----|-------------------|--------------------------|
-| 1   | Vũ Long Quân       | Full-stack Developer     |
+### 👥 Thành viên nhóm  
+| STT | Họ tên | Vai trò |
+|-----|---------|----------|
+| 1 | Vũ Long Quân | Full-stack Developer |
 
-*(Bạn có thể thêm các thành viên khác nếu có)*  
-
-## 🏆 Kết luận  
-Dự án Quan-Dev giúp bạn thực hành và hoàn thiện kỹ năng xây dựng ứng dụng web Java (backend + frontend + database), quản lý đa vai trò, xử lý nghiệp vụ quản lý kho & bán hàng – là một nền tảng rất tốt để phát triển thêm và nâng cao trong tương lai.
+### 🏆 Kết luận  
+Phiên bản **Java5** của dự án **Quan-Dev** là bước nâng cấp toàn diện từ Java4, áp dụng **Spring Boot**, **JPA/Hibernate**, và **REST API** để tạo nên ứng dụng web động, hiện đại và mở rộng dễ dàng.  
+Dự án giúp người học hiểu rõ cách kết hợp giữa **backend – frontend – database – API**, đồng thời rèn luyện kỹ năng phát triển ứng dụng thực tế trong doanh nghiệp.  
 
 ---
 
-📌 _Made with ❤️ by Vũ Long Quân – FPT Polytechnic (2023-2025)_  
+## 🇬🇧 INTRODUCTION (English)
+
+### 🔍 Overview  
+This project was developed as part of the **JAVA 5 – Advanced Java Web Development** course at **FPT Polytechnic**.  
+It simulates a **PC component management system**, providing modules for managing products, customers, orders, warehouses, and business reports.  
+The system supports multiple roles — **Admin**, **Staff**, and **Customer** — with a modern, responsive interface connected to a MySQL database.
+
+### 🛠 Technologies Used  
+- **Language:** Java 8+  
+- **Framework:** Spring Boot / Hibernate / JPA  
+- **Database:** MySQL  
+- **Frontend:** JSP + Bootstrap / Thymeleaf  
+- **Build Tool:** Maven  
+- **IDE:** IntelliJ IDEA / Eclipse  
+- **Architecture:** MVC + RESTful API  
+
+### 📁 Project Structure  
+
+![Uploading image.png…]()
+
+
+### ✅ Main Features  
+- User login / registration  
+- Role-based access (Admin / Staff / User)  
+- CRUD for products, customers, orders, and warehouse data  
+- Sales and revenue reports  
+- RESTful Web API integration  
+- Responsive UI (Bootstrap 5)  
+- Validation and exception handling  
+
+### 🧮 How to Run  
+1. **Clone the repository**
+    ```bash
+    git clone https://github.com/12Kidz34/quan-dev.git
+    cd quan-dev
+    git checkout java5
+    ```
+2. **Configure the database**
+    - Create a database named `quan_dev_db_java5`
+    - Update `application.properties`
+      ```properties
+      spring.datasource.url=jdbc:mysql://localhost:3306/quan_dev_db_java5
+      spring.datasource.username=root
+      spring.datasource.password=123456
+      ```
+3. **Run the application**
+    ```bash
+    mvn spring-boot:run
+    ```
+4. **Open in browser**
+    ```
+    http://localhost:8080
+    ```
+
+### 🧑‍💼 Sample Accounts  
+| Role | Username | Password |
+|------|-----------|-----------|
+| Admin | admin | 123 |
+| Staff | staff | 123 |
+| User | user | 123 |
+
+### 👥 Team Members  
+| No. | Name | Role |
+|-----|------|------|
+| 1 | Vũ Long Quân | Full-stack Developer |
+
+### 🏆 Conclusion  
+The **Java5** branch of **Quan-Dev** represents a major enhancement over the previous version.  
+It leverages **Spring Boot**, **Hibernate**, and **RESTful APIs** to deliver a modern, scalable web application with clear role separation and dynamic data handling.  
+This project strengthens understanding of enterprise-level **Java Web development**, including **backend logic**, **frontend integration**, and **database communication**.
+
+---
+
+📌 _Made with ❤️ by Vũ Long Quân – FPT Polytechnic_
