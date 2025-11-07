@@ -1,0 +1,92 @@
+<!-- src/main/resources/templates/user-info.html -->
+<div th:fragment="*">
+    <style>
+        .user-info-box {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            padding: 20px 25px;
+            margin-top: 25px;
+            max-width: 500px;
+            transition: all 0.3s ease;
+        }
+
+        .user-info-box:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .user-info-box h3 {
+            margin-top: 0;
+            color: steelblue;
+            text-align: center;
+        }
+
+        .user-info-box p {
+            font-size: 15px;
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+
+        .user-info-box strong {
+            color: #444;
+        }
+
+        .roles span {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 10px;
+            margin-right: 5px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .user-info-box a {
+            text-decoration: none;
+            color: white;
+            background-color: #1976d2;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .user-info-box a:hover {
+            background-color: #0d47a1;
+        }
+
+        .login-prompt {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-top: 15px;
+        }
+    </style>
+
+    <hr>
+
+    <!-- ✅ Nếu người dùng đã đăng nhập -->
+    <div th:if="${#authentication?.authenticated}" class="user-info-box">
+        <h3>👤 Thông tin người dùng</h3>
+        <p><strong>Tên đăng nhập:</strong>
+            <span th:text="${#authentication.name}"></span>
+        </p>
+        <p class="roles">
+            <strong>Quyền hạn:</strong>
+            <span th:each="auth : ${#authentication.authorities}"
+                  th:text="${auth.authority}"></span>
+        </p>
+        <div style="text-align: center;">
+            <a th:href="@{/logout}">Đăng xuất</a>
+        </div>
+    </div>
+
+    <!-- ❌ Nếu chưa đăng nhập -->
+    <div th:unless="${#authentication?.authenticated}" class="user-info-box login-prompt">
+        <p><em>Bạn chưa đăng nhập.</em></p>
+        <a th:href="@{/login/form}">🔐 Đăng nhập ngay</a>
+    </div>
+</div>
