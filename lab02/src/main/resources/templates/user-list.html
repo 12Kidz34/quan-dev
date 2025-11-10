@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý người dùng</title>
+</head>
+<body>
+<h2>👥 Danh sách người dùng</h2>
+
+<a th:href="@{/admin/users/new}">➕ Thêm người dùng</a>
+<table border="1" cellpadding="6" cellspacing="0" style="margin-top:15px;">
+    <tr>
+        <th>Username</th>
+        <th>Quyền</th>
+        <th>Hoạt động</th>
+        <th>Thao tác</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}"></td>
+        <td>
+            <span th:each="auth : ${user.authorities}" th:text="${auth.authority + ' '}"></span>
+        </td>
+        <td th:text="${user.enabled ? 'Đang hoạt động' : 'Bị khóa'}"></td>
+        <td>
+            <a th:href="@{'/admin/users/delete/' + ${user.username}}">❌ Xóa</a> |
+            <a th:href="@{'/admin/users/toggle/' + ${user.username}}">🔄 Đổi trạng thái</a>
+        </td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/}">← Quay về trang chính</a>
+</body>
+</html>
