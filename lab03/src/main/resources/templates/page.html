@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 3 - Google OAUTH</title>
+</head>
+<body>
+
+<h3 th:text="${message}">Message</h3>
+
+<!-- Menu điều hướng -->
+<nav>
+    <a th:href="@{/}">Trang chủ</a> |
+    <a th:href="@{/poly/url0}">URL 0</a> |
+    <a th:href="@{/poly/url1}">URL 1</a> |
+    <a th:href="@{/poly/url2}">URL 2</a> |
+    <a th:href="@{/poly/url3}">URL 3</a> |
+    <a th:href="@{/poly/url4}">URL 4</a>
+</nav>
+
+<hr>
+
+<!-- Nhúng thông tin người dùng -->
+<div th:replace="user-info :: *"></div>
+
+<hr>
+
+</body>
+</html>

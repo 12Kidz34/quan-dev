@@ -1,0 +1,23 @@
+<!-- src/main/resources/templates/user-info.html -->
+<div th:fragment="*">
+
+    <!-- ✅ Nếu đã đăng nhập -->
+    <div th:if="${#authentication != null and #authentication.principal != 'anonymousUser'}">
+        <h3>Thông tin người dùng</h3>
+        <p><strong>Tên đăng nhập:</strong>
+            <span th:text="${#authentication.name}"></span>
+        </p>
+        <p><strong>Quyền hạn:</strong>
+            <span th:each="auth : ${#authentication.authorities}"
+                  th:text="${auth.authority}"></span>
+        </p>
+        <a th:href="@{/logout}">Đăng xuất</a>
+    </div>
+
+    <!-- ❌ Nếu chưa đăng nhập -->
+    <div th:if="${#authentication == null or #authentication.principal == 'anonymousUser'}">
+        <p><em>Bạn chưa đăng nhập.</em></p>
+        <a th:href="@{/login/form}">Đăng nhập ngay</a>
+    </div>
+
+</div>
